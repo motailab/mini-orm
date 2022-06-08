@@ -1,0 +1,5 @@
+# Run the test suite and the examples.
+pytest>=7
+# Optional database drivers (SQLite needs nothing).
+# psycopg[binary]>=3.0  # for PostgreSQL
+# PyMySQL>=1.0           # for MySQL
