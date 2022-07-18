@@ -70,22 +70,22 @@ def main(url: str = ":memory:") -> None:
 
     section("3. Unit of work: add() runs no SQL, commit() runs it in the right order")
     with Session(db) as session:
-        alice = Author(name="Alice", email="alice@example.com")
-        bob = Author(name="Bob", email="bob@example.com")
+        mutaleb = Author(name="Mutaleb", email="mutaleb@example.com")
+        jannat = Author(name="Jannat", email="jannat@example.com")
         # The books come first in the list, but the authors are inserted first,
         # because each book needs the primary key of its author.
         session.add_all(
             [
-                Book(title="SQL Basics", price=20, published=True, author=alice),
-                Book(title="Advanced SQL", price=35, published=True, author=alice),
-                Book(title="Python Tricks", price=25, author=bob),
-                alice,
-                bob,
+                Book(title="SQL Basics", price=20, published=True, author=mutaleb),
+                Book(title="Advanced SQL", price=35, published=True, author=mutaleb),
+                Book(title="Python Tricks", price=25, author=jannat),
+                mutaleb,
+                jannat,
             ]
         )
         print("-- add_all() is done. No SQL yet. Now commit():")
         session.commit()
-        print(f"-- alice.id is now {alice.id}")
+        print(f"-- mutaleb.id is now {mutaleb.id}")
 
     section("4. Identity map: one object for each row")
     with Session(db) as session:

@@ -76,8 +76,8 @@ def main(url: str | None = None) -> None:
         print(migrations.migrate(db, directory))
         db.echo = False
         with Session(db) as session:
-            alice = Author(name="Alice")
-            session.add_all([alice, Book(title="SQL Basics", author=alice)])
+            abdul = Author(name="Abdul")
+            session.add_all([abdul, Book(title="SQL Basics", author=abdul)])
             session.commit()
         print(f"-- rows of books: {rows(db, 'books')}")
 
